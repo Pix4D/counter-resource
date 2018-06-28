@@ -1,0 +1,13 @@
+sudo: required #is required to use docker service in travis
+
+script:
+  - docker --version
+  - docker build -t counter-resource .
+  - docker images
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash deploy.sh
+  on:
+    branch: master
