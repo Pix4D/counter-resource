@@ -1,4 +1,4 @@
-[![Docker Pulls](https://img.shields.io/docker/pulls/jinlee/counter-resource.svg)]()
+[![Build Status](https://travis-ci.org/Pix4D/counter-resource.svg?branch=master)](https://travis-ci.org/Pix4D/counter-resource)
 
 # A Simple Counter Resource for Concourse
 
@@ -27,14 +27,14 @@ defining the s3 object that will store the counter.
 
 _Required_ fields:
 
-  - `bucket`: The name of the s3 bucket
-  - `key`: The name of the key within the bucket
+- `bucket`: The name of the s3 bucket
+- `key`: The name of the key within the bucket
 
 _Optional_ fields:
 
-  - `aws_access_key_id`: The access key used for s3 access
-  - `aws_secret_access_key`: The secret key used for s3 access
-  - `region`: The region of the bucket
+- `aws_access_key_id`: The access key used for s3 access
+- `aws_secret_access_key`: The secret key used for s3 access
+- `region`: The region of the bucket
 
 Note that [boto3][boto3] is used internally. This means that any other way of
 providing [credentials][cred] can be used (instance profiles, environment
@@ -64,8 +64,8 @@ task.
 
 There's only one optional parameter for the `get` task:
 
-  - `inc`: Defaults to false. If set to true, will increment the counter
-    locally, but not on s3
+- `inc`: Defaults to false. If set to true, will increment the counter
+  locally, but not on s3
 
 Note that concourse does seem to support the many ways of passing boolean values
 in yaml. Check the [example][example].
@@ -74,9 +74,9 @@ in yaml. Check the [example][example].
 
 There's only one required parameter for the `put` task:
 
-  - `file`: The path to the file with the count. In most cases this should be
-    the same file placed with the `get` task. However, it can be any file with a
-    single non-negative value.
+- `file`: The path to the file with the count. In most cases this should be
+  the same file placed with the `get` task. However, it can be any file with a
+  single non-negative value.
 
 ## Usage
 
@@ -132,9 +132,9 @@ The IAM Policy should look something like this:
       ]
     }
 
-[boto3]:     https://boto3.readthedocs.io/en/latest/
+[boto3]: https://boto3.readthedocs.io/en/latest/
 [concourse]: https://concourse.ci/
-[cred]:      https://boto3.readthedocs.io/en/latest/guide/configuration.html
-[example]:   example.yml
-[s3]:        https://github.com/concourse/s3-resource
-[semver]:    https://github.com/concourse/semver-resource
+[cred]: https://boto3.readthedocs.io/en/latest/guide/configuration.html
+[example]: example.yml
+[s3]: https://github.com/concourse/s3-resource
+[semver]: https://github.com/concourse/semver-resource
