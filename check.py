@@ -18,7 +18,7 @@ obj = session.resource('s3').Object(source['bucket'], source['key'])
 try:
     count = int(obj.get()['Body'].read())
 except Exception:
-    count = 0
+    count = source.get('initial_value', 0)
 
 res = []
 for i in range(0, count + 1):
