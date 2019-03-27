@@ -1,6 +1,5 @@
-FROM python:2.7
+FROM python:2.7-alpine
 
-RUN apt-get update && apt-get install -y python-pip
 RUN pip install boto3
 
 COPY check.py /opt/resource/check
